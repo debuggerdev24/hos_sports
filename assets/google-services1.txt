@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497114743375",
+    "project_id": "hos-sports",
+    "storage_bucket": "hos-sports.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497114743375:android:49624e76ed5a0043ec203a",
+        "android_client_info": {
+          "package_name": "com.app.hossports"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK9HAejs8mb1rn_vs4hw87fhvxWy1dfEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
