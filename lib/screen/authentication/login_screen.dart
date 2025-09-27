@@ -1,6 +1,4 @@
 import 'dart:developer';
-
-import 'package:app_settings/app_settings.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,11 +6,8 @@ import 'package:hos_sports/screen/authentication/enter_mobile_screen.dart';
 import 'package:hos_sports/screen/authentication/forgot_password_screen.dart';
 import 'package:hos_sports/service/api_const.dart';
 import 'package:hos_sports/service/controller/auth_controller.dart';
-import 'package:hos_sports/service/controller/location_controller.dart';
 import 'package:hos_sports/widgets/constants.dart';
-import 'package:hos_sports/widgets/toast.dart';
 import 'package:hos_sports/widgets/widgets.dart';
-
 import '../../widgets/validator.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -128,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     });
 
-    Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
+    // Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
   }
 
   @override

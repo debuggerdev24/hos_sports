@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:hos_sports/screen/schedule_game/schedule_form.dart';
 import 'package:hos_sports/service/model/UserModel.dart';
 import 'package:hos_sports/widgets/custom_dropdown.dart';
-
 import '../../../service/controller/auth_controller.dart';
-import '../../../widgets/constants.dart';
 import '../../../widgets/widgets.dart';
 
 class GoalieUpdateProfileDetails extends StatefulWidget {
@@ -25,15 +23,12 @@ class _GoalieUpdateProfileDetailsState
   late String gender;
   late String goalieExperience;
   late String ashlRegister;
-
-  late String distance; // Default value
+  late String distance; 
   late dynamic proximity;
-  late String levelOfGame; // Default value
-
+  late String levelOfGame; 
   DateTime? selectedDate;
-  final date = TextEditingController(); // Default date is empty
-
-  late String caliber; // Default value
+  final date = TextEditingController(); 
+  late String caliber; 
 
   late List<String> _selectedItems;
 
@@ -66,8 +61,6 @@ class _GoalieUpdateProfileDetailsState
     ashlRegister = widget.data.ashlRegister!;
     distance = widget.data.kilometersToTravel!;
     levelOfGame = widget.data.levelOfGame!;
-
-    // Convert the availableToPlay string to a List<String> if not null
     _selectedItems = widget.data.avaliableToPlay != null &&
             widget.data.avaliableToPlay!.isNotEmpty
         ? widget.data.avaliableToPlay!
@@ -89,7 +82,7 @@ class _GoalieUpdateProfileDetailsState
             "${selectedDate!.day.toString().padLeft(2, '0')}-${selectedDate!.month.toString().padLeft(2, '0')}-${selectedDate!.year}";
       } catch (e) {
         debugPrint("Error parsing date: $e");
-        selectedDate = null; // Fallback in case of error
+        selectedDate = null; 
       }
     }
     super.initState();

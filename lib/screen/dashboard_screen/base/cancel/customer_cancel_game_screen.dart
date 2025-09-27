@@ -1,15 +1,10 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hos_sports/screen/dashboard_screen/base/customer_interested_goalie_screen.dart';
-import 'package:hos_sports/screen/goalie_screen/goalie_home/base/scheduled_game_details.dart';
 import 'package:hos_sports/service/controller/common_controller.dart';
 import 'package:hos_sports/service/controller/customer_controller.dart';
 import 'package:intl/intl.dart';
 import '../../../../widgets/widgets.dart';
-import '../../../schedule_game/schedule_form.dart';
-import '../customer_selected_interest_goalie_screen.dart';
 
 class CustomerCancelGameScreen extends StatefulWidget {
   const CustomerCancelGameScreen({super.key});

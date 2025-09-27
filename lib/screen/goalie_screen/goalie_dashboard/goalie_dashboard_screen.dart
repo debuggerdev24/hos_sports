@@ -35,7 +35,7 @@ class _GoalieDashboardScreenState extends State<GoalieDashboardScreen> {
 
   callInit() {
     log("here it started");
-    Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
+    // Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
     Future.microtask(
             () => Get.find<LocationController>().determinePosition(context))
         .then((value) {

@@ -6,7 +6,7 @@ import 'package:hos_sports/service/controller/NotificationController.dart';
 import 'package:hos_sports/service/controller/auth_controller.dart';
 
 import 'package:hos_sports/widgets/widgets.dart';
-import 'package:app_settings/app_settings.dart';
+import 'package:permission_handler/permission_handler.dart' as AppSettings;
 
 class NotificationTypeScreen extends StatefulWidget {
   const NotificationTypeScreen({super.key});

@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -172,6 +171,7 @@ class AuthController extends GetxController {
               isVersionSmaller(version, updateData["apk_version_ios"])) {
             shouldShowUpdate = true;
             platform = 'iOS';
+            
           }
 
           if (shouldShowUpdate) {

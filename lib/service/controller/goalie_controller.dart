@@ -15,9 +15,6 @@ import 'package:hos_sports/service/model/GoalieNotificationSettingModel.dart';
 import 'package:hos_sports/service/model/GoaliePendingFeedbackModel.dart';
 import 'package:hos_sports/service/model/MostPlayedGameModel.dart';
 import 'package:hos_sports/widgets/toast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../widgets/widgets.dart';
 import '../api_const.dart';
 
 class GoalieController extends GetxController {
@@ -28,7 +25,6 @@ class GoalieController extends GetxController {
   GameAvailableModel? gameAvailableModel;
   GameScheduledModel? gameScheduledModel;
   GoaliePendingFeedbackModel? goaliePendingFeedbackModel;
-
   bool loadingAbiGame = false;
 
   setLoading(bool value) {

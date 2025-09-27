@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart' as geo;
 import 'package:geolocator/geolocator.dart';
@@ -8,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:hos_sports/service/api_const.dart';
 import 'package:hos_sports/widgets/toast.dart';
 import 'package:location/location.dart';
+import 'package:permission_handler/permission_handler.dart' as AppSettings;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -121,7 +121,7 @@ class LocationController extends GetxController {
           action: SnackBarAction(
               label: "Open",
               onPressed: () {
-                AppSettings.openAppSettings(type: AppSettingsType.location);
+                AppSettings.openAppSettings();
               }));
 
       // Permissions are denied forever, handle appropriately.

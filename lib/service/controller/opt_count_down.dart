@@ -24,12 +24,12 @@ class CountdownController extends GetxController {
 
   void resetTimer() {
     stopTimer();
-    timeLeft.value = 300; // Reset to 5 minutes
+    timeLeft.value = 300; 
   }
 
   @override
   void onClose() {
-    stopTimer(); // Cleanup timer when the controller is disposed
+    stopTimer(); 
     super.onClose();
   }
 

@@ -18,7 +18,8 @@ class SmsConst {
 }
 
 class GoogleMapKey {
-  static const allKey = "AIzaSyCQP1SBLN_Kl1icBTNZMtpyft80d2dVIKc";
+  // static const allKey = "AIzaSyCQP1SBLN_Kl1icBTNZMtpyft80d2dVIKc";
+  static const allKey = "AIzaSyDZgBL4S1Ze991YPKALh6LihwKU61Xyv_0";
 }
 
 class AppColor {

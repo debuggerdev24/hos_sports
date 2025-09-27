@@ -34,7 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
 
   callInit() {
-    Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
+    // Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
     Future.microtask(() => Get.find<LocationController>().setPosition(context))
         .then((value) {
       Future.microtask(
@@ -115,11 +115,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
               builder: (context) {
                 return AlertDialog(
                   backgroundColor:
-                      Colors.black, // Set the background to a blue color
+                      Colors.black,
                   shape: const RoundedRectangleBorder(
                     side: BorderSide(color: Colors.white),
                     borderRadius: BorderRadius.all(
-                        Radius.circular(20)), // Rounded corners
+                        Radius.circular(20)),
                   ),
                   title: const Text("Are you really want to exit ?",
                       style: TextStyle(color: Colors.white)),

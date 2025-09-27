@@ -3,8 +3,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hos_sports/firebase_options.dart';
-
-import 'package:hos_sports/screen/settings/base/goalie_signup_screen.dart';
 import 'package:hos_sports/service/controller/NotificationController.dart';
 import 'package:hos_sports/service/controller/auth_controller.dart';
 import 'package:hos_sports/service/controller/common_controller.dart';
@@ -13,7 +11,6 @@ import 'package:hos_sports/service/controller/goalie_controller.dart';
 import 'package:hos_sports/service/controller/location_controller.dart';
 import 'package:hos_sports/service/controller/opt_count_down.dart';
 import 'package:timezone/data/latest.dart' as tz;
-
 import 'screen/splash_screen.dart';
 import 'service/controller/fcm_helper.dart';
 import 'widgets/constants.dart';
@@ -65,11 +62,9 @@ class MyApp extends StatelessWidget {
           labelSmall: TextStyle(color: Colors.white),
           headlineMedium: TextStyle(color: Colors.white),
           headlineSmall: TextStyle(color: Colors.white),
-
-          // Set default text color to white
           bodyMedium: TextStyle(
               color:
-                  Colors.white), // If you want to set other text styles as well
+                  Colors.white),
         ),
         listTileTheme: const ListTileThemeData(
             titleTextStyle: TextStyle(color: Colors.white)),

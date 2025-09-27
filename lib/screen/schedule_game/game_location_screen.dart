@@ -1,14 +1,16 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_places_flutter/google_places_flutter.dart';
+import 'package:google_places_flutter/model/place_details.dart';
 import 'package:google_places_flutter/model/prediction.dart';
 import 'package:hos_sports/service/controller/customer_controller.dart';
+import 'package:hos_sports/service/controller/location_controller.dart';
 import 'package:hos_sports/widgets/widgets.dart';
-
 import '../../widgets/constants.dart';
 
 class GameLocationScreen extends StatefulWidget {
@@ -43,52 +45,51 @@ class _GameLocationScreenState extends State<GameLocationScreen> {
                 ),
                 GooglePlaceAutoCompleteTextField(
                   textEditingController: placeController,
-                  boxDecoration: const BoxDecoration(
-                    color: Colors.black,
-                  ),
+                  boxDecoration: const BoxDecoration(color: Colors.black),
                   googleAPIKey: GoogleMapKey.allKey,
-                  countries: const ["ca"],
+                  countries: ["ca", "in"],
                   inputDecoration: const InputDecoration(
-                      labelText: "Search New Rink",
-                      labelStyle: TextStyle(color: Colors.white),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      )),
+                    labelText: "Search New Rink",
+                    labelStyle: TextStyle(color: Colors.white),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                  ),
                   debounceTime: 800,
                   isLatLngRequired: true,
-                  itemClick: (pre) {
-                    address.text = pre.description!;
-                  },
-                  getPlaceDetailWithLatLng: (Prediction prediction) async {
-                    print(prediction.toJson());
-                    placeId = prediction.placeId.toString();
-                    rink = prediction.structuredFormatting!.mainText.toString();
-                    _latLng = LatLng(double.parse(prediction.lat!),
-                        double.parse(prediction.lng!));
-                    markers.clear();
-                    markers.add(Marker(
-                        markerId: const MarkerId("1"), position: _latLng));
-                    final GoogleMapController controller =
-                        await _controller.future;
-                    await controller.animateCamera(
+                  itemClick: (Prediction prediction) async {
+                    if (!mounted) return; // widget might be gone already
+                    address.text = prediction.description ?? "";
+                    placeId = prediction.placeId ?? "";
+                    rink = prediction.structuredFormatting?.mainText ?? "";
+
+                    if (prediction.lat != null && prediction.lng != null) {
+                      _latLng = LatLng(double.parse(prediction.lat!),
+                          double.parse(prediction.lng!));
+                      markers.clear();
+                      markers.add(Marker(
+                          markerId: const MarkerId("1"), position: _latLng));
+
+                      if (!mounted) return;
+                      final GoogleMapController mapController =
+                          await _controller.future;
+                      await mapController.animateCamera(
                         CameraUpdate.newCameraPosition(
-                            CameraPosition(target: _latLng, zoom: 15)));
-                    Get.back();
+                            CameraPosition(target: _latLng, zoom: 15)),
+                      );
+                    }
+
+                    if (!mounted) return;
                     setState(() {});
+                    if (mounted) Get.back();
                   },
                   itemBuilder: (context, index, Prediction prediction) {
                     return Container(
@@ -96,17 +97,11 @@ class _GameLocationScreenState extends State<GameLocationScreen> {
                       padding: const EdgeInsets.all(10),
                       child: Row(
                         children: [
-                          const Icon(
-                            Icons.location_on,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(
-                            width: 7,
-                          ),
+                          const Icon(Icons.location_on, color: Colors.white),
+                          const SizedBox(width: 7),
                           Expanded(
-                              child: Text(
-                            prediction.description ?? "",
-                          ))
+                              child: Text(prediction.description ?? "",
+                                  style: const TextStyle(color: Colors.white))),
                         ],
                       ),
                     );

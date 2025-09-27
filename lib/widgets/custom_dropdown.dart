@@ -10,8 +10,7 @@ class DropDownList extends StatefulWidget {
   final String label;
   final bool? labelShow;
   final ValueChanged<String?>? onChange;
-  final String? disabledItem; // New parameter for the item to be disabled
-
+  final String? disabledItem; 
   const DropDownList(
       {Key? key,
       required this.items,
@@ -37,11 +36,10 @@ class _DropDownListState extends State<DropDownList> {
   @override
   void initState() {
     super.initState();
-    // Set the selected value to the provided value or default to the first item
     if (widget.value != null && widget.items.contains(widget.value)) {
-      _selected = widget.value; // Set to the provided value if valid
+      _selected = widget.value; 
     } else if (widget.items.isNotEmpty) {
-      _selected = widget.items.first; // Default to the first item
+      _selected = widget.items.first;
     }
   }
 
@@ -108,7 +106,7 @@ class _DropDownListState extends State<DropDownList> {
 
   @override
   void dispose() {
-    _removeOverlay(); // Ensure overlay is removed
+    _removeOverlay();
     super.dispose();
   }
 
@@ -326,7 +324,7 @@ class ListItem extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap, // Disable the tap if isDisabled
+        onTap: onTap, 
         // onTap: isDisabled ? null : onTap, // Disable the tap if isDisabled
         child: Padding(
           padding: const EdgeInsets.all(Defaults.spacing),
@@ -335,7 +333,7 @@ class ListItem extends StatelessWidget {
             style: TextStyle(
               color: isDisabled
                   ? Colors.grey
-                  : Colors.white, // Change color based on disabled state
+                  : Colors.white, 
             ),
           ),
         ),

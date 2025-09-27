@@ -32,7 +32,7 @@ class _EnterMobileScreenState extends State<EnterMobileScreen> {
 
   @override
   void initState() {
-    Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
+    // Future.microtask(() => Get.find<AuthController>().forceUpdate(context));
     super.initState();
   }
 

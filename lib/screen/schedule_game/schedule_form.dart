@@ -89,7 +89,7 @@ class _ScheduleGameFormState extends State<ScheduleGameForm> {
 
   bool haveFunRun = false;
 
-  late bool locationPermission = false; // Default value
+  late bool locationPermission = false;
 
   checkPermission() async {
     locationPermission =

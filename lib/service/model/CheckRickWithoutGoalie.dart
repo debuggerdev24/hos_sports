@@ -2,7 +2,7 @@ class CheckingGameWithoutGoalieResponse {
   List<CheckingGameWithoutGoalie>? data;
   String? success;
   List<dynamic>?
-      lastInterestId; // Since the type isn't specified, keeping it dynamic.
+      lastInterestId;
   String? serviceTime;
 
   CheckingGameWithoutGoalieResponse({
